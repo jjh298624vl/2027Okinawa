@@ -131,6 +131,23 @@ section{scroll-margin-top:72px;margin-bottom:34px}
 .todo input:checked ~ .tx b{text-decoration:line-through;text-decoration-thickness:2px;opacity:.55}
 .todo b{font-weight:400}
 
+/* ---------- 行前準備 ---------- */
+.weather{display:flex;align-items:center;gap:12px;padding:12px 14px;margin-bottom:16px;background:var(--mizu)}
+.weather svg{width:52px;height:52px;flex:none}
+.weather b{font-weight:400;font-size:17px;display:block}
+.weather small{font-size:14px}
+.grp-title{display:flex;align-items:center;gap:8px;font-size:17px;margin:14px 2px 2px}
+.grp-title:first-of-type{margin-top:0}
+.grp-title i{width:14px;height:14px;border:2.5px solid var(--ink);border-radius:50%;flex:none}
+.notes{display:grid;gap:14px;margin-top:18px}
+.note{padding:12px 14px 10px}
+.note h3{display:flex;align-items:center;gap:8px;font-size:18px;margin-bottom:4px}
+.note h3 span{width:30px;height:30px;border:2.5px solid var(--ink);border-radius:10px;display:grid;place-items:center;font-size:16px;flex:none}
+.note ul{margin:0;padding-left:20px;font-size:15px}
+.note li{margin:5px 0}
+.note li b{font-weight:400;box-shadow:inset 0 -7px 0 var(--yellow)}
+@media (min-width:600px){.notes{grid-template-columns:1fr 1fr}}
+
 /* ---------- 住宿 ---------- */
 .stays{display:grid;gap:16px}
 .stay{overflow:hidden}
@@ -195,6 +212,7 @@ footer svg{width:100%;max-width:360px;height:auto;display:block;margin:0 auto 6p
     <a href="#flight">航班</a>
     <a href="#plan">行程</a>
     <a href="#todo">待辦</a>
+    <a href="#pack">準備</a>
     <a href="#stay">住宿</a>
   </div>
 </nav>
@@ -350,6 +368,23 @@ footer svg{width:100%;max-width:360px;height:auto;display:block;margin:0 auto 6p
   </div>
 </section>
 
+<!-- 行前準備 -->
+<section id="pack">
+  <h2 class="sec-title">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><g stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"><rect x="6" y="12" width="28" height="23" rx="6" fill="#B9DAA5"/><path d="M15 12V8q0-3 3-3h4q3 0 3 3v4" fill="none"/><path d="M6 21h28" fill="none"/><rect x="17" y="18" width="6" height="6" rx="1.5" fill="#F6D27A"/></g></svg>
+    <span>行前準備</span>
+  </h2>
+  <div class="card weather">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"><g class="a-spin" style="transform-origin:24px 24px"><path d="M24 6V3M24 45v-3M6 24H3M45 24h-3M11 11L9 9M39 39l-2-2M11 37l-2 2M39 9l-2 2" stroke-linecap="round" fill="none"/></g><circle cx="24" cy="24" r="12" fill="#F6D27A"/><g class="a-drift"><path d="M28 50q0-8 9-8q3-7 11-5q8-2 11 6q5 1 5 7z" fill="#FFFCF6"/></g></g></svg>
+    <div><b>3 月中旬的沖繩：約 17～23°C</b><small>白天短袖舒服、早晚微涼，海邊斷崖風很大，偶有陣雨</small></div>
+  </div>
+  <div class="card todo">
+    <div class="progress"><span id="packText">已準備 0 / 0</span><div class="bar"><i id="packBar" class="zero"></i></div></div>
+    <div id="packList"></div>
+  </div>
+  <div class="notes" id="notes"></div>
+</section>
+
 <!-- 住宿 -->
 <section id="stay">
   <h2 class="sec-title">
@@ -392,16 +427,16 @@ const ART = {
 const DAYS = [
  {date:'3/17',wd:'三',art:'fish',title:'南部海鮮、重機部品朝聖、瀨長島與那霸燒肉宵夜',items:[
   {t:'08:55',e:'10:00',ic:'✈️',n:'抵達那霸機場・BGA 取車',d:'出關後搭接駁車前往 BGA 營業所領取 Toyota Alphard',tr:['plane','shuttle']},
-  {t:'10:30',e:'11:45',ic:'🦐',n:'糸滿魚市場',d:'海鮮午餐：現剝生蝦、生魚片、烤扇貝',tr:['drive'],q:'糸満漁民食堂 糸満市 お魚センター'},
+  {t:'10:30',e:'11:45',ic:'🦐',n:'糸滿魚市場',d:'海鮮午餐：現剝生蝦、生魚片、烤扇貝',tr:['drive'],q:'糸満漁民食堂 4 Chome-17-7 Nishizakicho, Itoman, Okinawa 901-0306'},
   {t:'12:00',e:'13:30',ic:'🏍️',n:'ricoland Okinawa（ライコランド 沖縄店）',d:'沖繩最大機車部品與人身部品專賣店朝聖',tr:['drive'],q:'ライコランド 沖縄店'},
-  {t:'13:45',e:'15:30',ic:'🥞',n:'瀨長島 Umikaji Terrace',d:'享用幸福鬆餅、看海拍照',tr:['drive'],must:1,rsv:1,q:'瀬長島ウミカジテラス'},
-  {t:'15:45',e:'16:30',ic:'🛍️',n:'iias 沖繩豐崎 或 ASHIBINAA Outlet',d:'二選一逛街',tr:['drive'],q:'iias沖縄豊崎'},
-  {t:'17:00',e:'17:40',ic:'🧳',n:'Urban Terrace Naha Check-in',d:'前往那霸市區辦理入住',tr:['drive'],q:'Urban Terrace Naha'},
-  {t:'18:00',e:'20:00',ic:'🥩',n:'晚餐｜燒肉 ぶち（久茂地熱血燒肉）',tr:[],q:'焼肉ぶち 久茂地'},
+  {t:'13:45',e:'15:30',ic:'🥞',n:'瀨長島 Umikaji Terrace',d:'享用幸福鬆餅、看海拍照',tr:['drive'],must:1,rsv:1,q:[['地圖','瀬長島ウミカジテラス'],['幸福鬆餅','幸せのパンケーキ 沖縄瀬長島テラス店']]},
+  {t:'15:45',e:'16:30',ic:'🛍️',n:'iias 沖繩豐崎 或 ASHIBINAA Outlet',d:'二選一逛街',tr:['drive'],q:[['iias 豐崎','iias沖縄豊崎'],['ASHIBINAA','沖縄アウトレットモール あしびなー']]},
+  {t:'17:00',e:'17:40',ic:'🧳',n:'Urban Terrace Naha Check-in',d:'前往那霸市區辦理入住',tr:['drive'],q:'https://www.google.com/maps/place/%E3%82%A2%E3%83%BC%E3%83%90%E3%83%B3%E3%83%86%E3%83%A9%E3%82%B9%E3%83%8A%E3%83%8F/@26.2205773,127.6730354,17z/data=!3m1!4b1!4m6!3m5!1s0x34e56900215d2e57:0xe9e3471b4f3ebcd!8m2!3d26.2205725!4d127.6756103!16s%2Fg%2F11xvqn_dnj?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'},
+  {t:'18:00',e:'20:00',ic:'🥩',n:'晚餐｜燒肉 ぶち（久茂地熱血燒肉）',tr:[],q:'ぶち 久茂地店 3 Chome-12-1 Kumoji, Naha, Okinawa 900-0015'},
   {t:'20:30',e:'',ic:'🍜',n:'宵夜｜一蘭拉麵 那霸國際通店',d:'或國際通夜間散策',tr:['walk'],q:'一蘭 那覇国際通り店'}
  ]},
  {date:'3/18',wd:'四',art:'rock',title:'玉子燒飯糰、波上宮、一蘭拉麵、萬座毛與名護超市半額夜襲',items:[
-  {t:'08:30',e:'09:10',ic:'🍙',n:'早餐｜福助玉子燒',d:'現做厚蛋燒沖繩飯糰',tr:[],q:'福助の玉子焼 那覇'},
+  {t:'08:30',e:'09:10',ic:'🍙',n:'早餐｜福助玉子燒',d:'現做厚蛋燒沖繩飯糰',tr:[],q:'福助の玉子焼き 市場本通り店 2 Chome-9-11 Matsuo, Naha, Okinawa 900-0014'},
   {t:'09:10',e:'10:20',ic:'⛩️',n:'波上宮＋波之上海灘',d:'參拜、搶購每日限定小書包御守 🎒，海灘拍照後走回飯店開車',tr:['walk'],must:1,q:'波上宮'},
   {t:'10:30',e:'11:45',ic:'🍜',n:'一蘭拉麵 那霸國際通店',d:'當作早午餐',tr:['drive'],q:'一蘭 那覇国際通り店'},
   {move:1,t:'11:45',n:'沿 58 號國道北上恩納村',d:'約 50 分鐘',tr:['drive']},
@@ -410,15 +445,15 @@ const DAYS = [
   {move:1,t:'15:30',n:'北上前往名護市區',d:'約 35 分鐘',tr:['drive']},
   {t:'16:30',e:'18:30',ic:'🛍️',n:'MEGA 唐吉訶德 名護店',d:'大採購藥妝與伴手禮',tr:[],q:'MEGAドン・キホーテ 名護店'},
   {t:'18:30',e:'19:30',ic:'🍣',n:'BIG Express Nago 或 MaxValu Nago',d:'19:30 準時搶半額熟食、生魚片與 Orion 啤酒',tr:['drive'],q:'BIG Express 名護'},
-  {t:'20:00',e:'',ic:'🎉',n:'入住 還元 Hotel 本部備瀨',d:'房間開超市半額宵夜派對',tr:['drive'],q:'Kangen Hotel Motobu Bise'}
+  {t:'20:00',e:'',ic:'🎉',n:'入住 還元 Hotel 本部備瀨',d:'房間開超市半額宵夜派對',tr:['drive'],q:'https://www.google.com/maps/place/%E9%82%84%E5%85%83%E3%83%9B%E3%83%86%E3%83%AB+%E6%9C%AC%E9%83%A8%E5%82%99%E7%80%AC/@26.70241,127.8823026,17z/data=!3m1!4b1!4m9!3m8!1s0x34e4fb2a503aed21:0xe594ce4141210662!5m2!4m1!1i2!8m2!3d26.7024052!4d127.8848775!16s%2Fg%2F11fl_hw_6q?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'}
  ]},
  {date:'3/19',wd:'五',art:'shark',title:'美麗海頭香、古宇利大橋、許田休息站、來客夢大採購與在地居酒屋',items:[
   {move:1,t:'08:15',n:'出發前往水族館',d:'開車約 3 分鐘',tr:['drive']},
   {t:'08:30',e:'11:30',ic:'🐋',n:'沖繩美麗海水族館',d:'08:30 搶頭香入場｜Ocean Blue 咖啡廳觀鯨鯊＋黑潮之海大水槽＋戶外海豚秀',tr:[],must:1,q:'沖縄美ら海水族館'},
-  {t:'11:30',e:'12:00',ic:'🌉',n:'古宇利大橋',d:'先在橋下沙灘／停車場拍照 📸，再駛過跨海大橋',tr:['drive'],must:1,q:'古宇利大橋'},
+  {t:'11:30',e:'12:00',ic:'🌉',n:'古宇利大橋',d:'先在橋下沙灘／停車場拍照 📸，再駛過跨海大橋',tr:['drive'],must:1,q:'Nakijin, Okinawa 905-0406'},
   {t:'12:00',e:'13:30',ic:'🦐',n:'午餐｜Kouri Shrimp 蝦蝦飯',d:'古宇利島人氣蒜味奶油蝦',tr:['drive'],q:'KOURI SHRIMP 古宇利島'},
-  {t:'13:30',e:'14:15',ic:'☕',n:'下午茶｜The Sinmay',d:'招牌黑糖拿鐵',tr:['drive'],q:'The Sinmay 古宇利'},
-  {t:'14:30',e:'15:15',ic:'🍤',n:'許田休息站（Roadside Station Kyoda）',d:'現炸天婦羅、伴手禮、黑糖冰淇淋',tr:['drive'],q:'道の駅 許田'},
+  {t:'13:30',e:'14:15',ic:'☕',n:'下午茶｜The Sinmay',d:'招牌黑糖拿鐵',tr:['drive'],q:'The Sinmay 292-2 Tamashiro, Nakijin, Kunigami District, Okinawa 905-0415'},
+  {t:'14:30',e:'15:15',ic:'🍤',n:'許田休息站（Roadside Station Kyoda）',d:'現炸天婦羅、伴手禮、黑糖冰淇淋',tr:['drive'],q:'道の駅許田 やんばる物産センター 17-1 Kyoda, Nago, Okinawa 905-0024'},
   {move:1,t:'15:15',n:'南下前往 AEON Rycom',d:'約 35 分鐘',tr:['highway']},
   {t:'15:50',e:'18:50',ic:'🛍️',n:'AEON MALL 沖繩來客夢',d:'大採購 3 小時：mont-bell、MEGA SPORTS、Loft',tr:[],q:'イオンモール沖縄ライカム'},
   {t:'18:50',e:'19:15',ic:'🧳',n:'北谷日漁別莊 Check-in',tr:['drive'],q:'北谷 日漁別荘'},
@@ -460,8 +495,8 @@ const TODOS = [
 ];
 
 const STAYS = [
-  {n:'Urban Terrace Naha',sub:'那霸市區',when:'3/17（三）',nights:'1 晚',in:'約 17:00',out:'3/18 早上（逛完波上宮回來開車）',color:'coral',park:1,q:'Urban Terrace Naha'},
-  {n:'還元 Hotel 本部備瀨',sub:'Kangen Hotel Motobu Bise｜本部町・水族館旁',when:'3/18（四）',nights:'1 晚',in:'約 20:00 後',out:'3/19 08:15 出發去水族館',color:'yellow',q:'Kangen Hotel Motobu Bise'},
+  {n:'Urban Terrace Naha',sub:'那霸市區',when:'3/17（三）',nights:'1 晚',in:'約 17:00',out:'3/18 早上（逛完波上宮回來開車）',color:'coral',park:1,q:'https://www.google.com/maps/place/%E3%82%A2%E3%83%BC%E3%83%90%E3%83%B3%E3%83%86%E3%83%A9%E3%82%B9%E3%83%8A%E3%83%8F/@26.2205773,127.6730354,17z/data=!3m1!4b1!4m6!3m5!1s0x34e56900215d2e57:0xe9e3471b4f3ebcd!8m2!3d26.2205725!4d127.6756103!16s%2Fg%2F11xvqn_dnj?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'},
+  {n:'還元 Hotel 本部備瀨',sub:'Kangen Hotel Motobu Bise｜本部町・水族館旁',when:'3/18（四）',nights:'1 晚',in:'約 20:00 後',out:'3/19 08:15 出發去水族館',color:'yellow',q:'https://www.google.com/maps/place/%E9%82%84%E5%85%83%E3%83%9B%E3%83%86%E3%83%AB+%E6%9C%AC%E9%83%A8%E5%82%99%E7%80%AC/@26.70241,127.8823026,17z/data=!3m1!4b1!4m9!3m8!1s0x34e4fb2a503aed21:0xe594ce4141210662!5m2!4m1!1i2!8m2!3d26.7024052!4d127.8848775!16s%2Fg%2F11fl_hw_6q?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'},
   {n:'北谷日漁別莊',sub:'Chantan Nichigyobetsu｜美國村連住',when:'3/19（五）– 3/20（六）',nights:'2 晚',in:'約 18:50',out:'3/21 08:30',color:'mizu',park:1,q:'北谷 日漁別荘'}
 ];
 
@@ -469,6 +504,7 @@ const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 const mapURL = q => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
 const tag = k => { const t = TR[k]; return `<span class="tag tag-${t[2]}">${t[0]} ${t[1]}</span>`; };
 const DOTS = ['coral','yellow','mizu','green'];
+const mapLinks = q => !q ? '' : (Array.isArray(q) ? q : [['地圖', q]]).map(([l,v]) => `<a class="map" href="${/^https?:/.test(v) ? v.replace(/&/g,'&amp;') : mapURL(v)}" target="_blank" rel="noopener">📍 ${l}</a>`).join('');
 
 /* ---------- 倒數 ---------- */
 const ARRIVE = new Date('2027-03-17T08:55:00+09:00').getTime();
@@ -503,7 +539,7 @@ function renderDay(i, animate){
     const tags = it.tr.map(tag).join('');
     if (it.move) return `<li class="tl-item move${a}" style="--i:${k+1}"><div class="tm"><b>${it.t}</b></div><div class="dot"></div><div class="mv">${tags}<span>${it.n}</span><small>${it.d||''}</small></div></li>`;
     const col = DOTS[c++ % 4];
-    const extra = (it.rsv?'<span class="tag tag-rsv">📌 需預約</span>':'') + (it.q?`<a class="map" href="${mapURL(it.q)}" target="_blank" rel="noopener">📍 地圖</a>`:'');
+    const extra = (it.rsv?'<span class="tag tag-rsv">📌 需預約</span>':'') + mapLinks(it.q);
     return `<li class="tl-item${it.must?' must':''}${a}" style="--i:${k+1}">
       <div class="tm"><b>${it.t}</b>${it.e?`<small>${it.e}</small>`:''}</div>
       <div class="dot" style="background:var(--${col})"></div>
@@ -556,6 +592,89 @@ listEl.addEventListener('change', e=>{
 });
 progress();
 
+/* ---------- 行前準備 ---------- */
+const PACK = [
+ {g:'衣物',c:'coral',items:[
+  ['short','短袖＋薄長袖（洋蔥式穿搭）','白天約 20°C，早晚與冷氣房偏涼'],
+  ['jacket','防風薄外套','萬座毛、殘波岬、知念岬斷崖風大'],
+  ['shoes','好走的運動鞋','每天走很多，來客夢還要逛 3 小時'],
+  ['sandal','拖鞋或涼鞋','波之上海灘、日落海灘踩沙'],
+  ['swim','泳衣＋一套換洗衣物','Day 4 青洞浮潛，結束後直接去吃 Nobu'],
+  ['towel','毛巾＋防水袋裝濕衣','浮潛後換裝用'],
+  ['pj','睡衣、4 天份貼身衣物','']
+ ]},
+ {g:'證件與資料',c:'yellow',items:[
+  ['pp','護照（每人）','入出境、購物退稅都要用'],
+  ['dl','台灣駕照正本＋日文譯本','每位會開車的人都要帶，缺一不可'],
+  ['vjw','Visit Japan Web 入境 QR Code','出發前登錄好入境與免稅資料'],
+  ['car','BGA 租車預約確認','取車時出示'],
+  ['hotel','3 間住宿訂房確認','Urban Terrace Naha、還元 Hotel、北谷日漁別莊'],
+  ['rsv','預約確認截圖','幸福鬆餅、きんぱぎんぱ、青洞浮潛'],
+  ['ins','旅遊平安險／不便險資料','含海外急難救助電話'],
+  ['cash','信用卡＋日圓現金','魚市場、小店可能只收現金']
+ ]},
+ {g:'隨身用品',c:'mizu',items:[
+  ['sun','防曬乳、太陽眼鏡、帽子','3 月紫外線已經不弱'],
+  ['phonebag','防水手機袋','浮潛與海邊拍照'],
+  ['net','網卡／eSIM 或 Wi-Fi 分享器','開車導航必備'],
+  ['power','行動電源、充電線、車用充電器','日本插座與台灣相同，不用轉接頭'],
+  ['umb','摺疊傘或輕便雨衣',''],
+  ['bag','環保購物袋','超市、商店的塑膠袋要另外收費'],
+  ['med','個人常備藥','暈車藥、腸胃藥、OK 繃'],
+  ['space','行李箱預留空間','唐吉訶德、AEON、伴手禮會買很多']
+ ]}
+];
+const NOTES = [
+ {h:'開車',i:'🚗',c:'mizu',li:[
+  '日本<b>靠左行駛、右駕</b>，轉彎、進出停車場時特別放慢',
+  'Day 3、Day 5 會走高速公路，取車時可詢問 BGA 是否加租 <b>ETC 卡</b>',
+  '<b>酒駕零容忍</b>：Orion 啤酒等抵達住宿、確定不再開車才喝',
+  '導航可以輸入電話號碼或 MAPCODE，比輸入地址更準',
+  '還車前<b>加滿油並保留收據</b>，依 BGA 規定辦理',
+  'Alphard 車身大：Day 1、Day 3–4 住宿停車位要先確認'
+ ]},
+ {h:'青洞浮潛',i:'🤿',c:'green',li:[
+  '浪大或天候不佳可能<b>臨時取消</b>，前一天跟店家確認',
+  '3 月海水仍偏涼，確認店家<b>是否提供防寒衣</b>',
+  '浮潛前不要吃太飽，午餐 Nobu 排在結束後剛剛好',
+  '確認 <b>10:30 場次</b>的集合地點，提早 10–15 分鐘到'
+ ]},
+ {h:'購物退稅',i:'🛍️',c:'coral',li:[
+  '日本 2026/11 起改成<b>退稅制</b>：結帳先付含稅價，出境時在機場退稅',
+  '購物時要出示<b>護照本人</b>，並保留收據與店家給的 QR Code',
+  '機場可能抽查退稅商品，<b>放在方便拿出來的地方</b>',
+  '超市半額貼紙約 19:30 後出現，名護 BIG／MaxValu 準時到'
+ ]},
+ {h:'時間與其他',i:'⏰',c:'yellow',li:[
+  '美麗海水族館 <b>08:30 開館</b>，建議先買好門票',
+  '波上宮小書包御守每日限量，早點到',
+  '美國村週六煙火：出發前<b>再確認當週有無施放</b>',
+  'Day 5 時間緊湊：<b>14:00 還車、15:00 到機場</b>，留足退稅與報到時間',
+  '寺廟、神社參拜時保持安靜，拍照前先看是否禁止'
+ ]}
+];
+const PKEY = 'okinawa-2027-pack';
+let packed = {};
+try { packed = JSON.parse(localStorage.getItem(PKEY)) || {}; } catch(e) { packed = {}; }
+const packEl = document.getElementById('packList');
+const ALLP = PACK.flatMap(g=>g.items);
+packEl.innerHTML = PACK.map(g=>`<h3 class="grp-title"><i style="background:var(--${g.c})"></i>${g.g}</h3><ul>${g.items.map(([id,t,s])=>`<li><label><input type="checkbox" data-pid="${id}" ${packed[id]?'checked':''}><span class="ck"><svg viewBox="0 0 20 20"><path d="M4 10.5l4 4 8-9" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="tx"><b>${t}</b>${s?`<small>${s}</small>`:''}</span></label></li>`).join('')}</ul>`).join('');
+function packProgress(){
+  const n = ALLP.filter(([id])=>packed[id]).length;
+  document.getElementById('packText').textContent = `已準備 ${n} / ${ALLP.length}`;
+  const bar = document.getElementById('packBar');
+  bar.style.width = (n/ALLP.length*100)+'%';
+  bar.classList.toggle('zero', n===0);
+}
+packEl.addEventListener('change', e=>{
+  const id = e.target.dataset.pid; if (!id) return;
+  packed[id] = e.target.checked;
+  try { localStorage.setItem(PKEY, JSON.stringify(packed)); } catch(err) {}
+  packProgress();
+});
+packProgress();
+document.getElementById('notes').innerHTML = NOTES.map(n=>`<div class="card note"><h3><span style="background:var(--${n.c})">${n.i}</span>${n.h}注意事項</h3><ul>${n.li.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+
 /* ---------- 住宿 ---------- */
 const houseSVG = c => `<svg viewBox="0 0 40 40" aria-hidden="true"><g stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"><circle cx="20" cy="20" r="18" fill="#FFFCF6"/><rect x="11" y="19" width="18" height="13" fill="#FFFCF6"/><path d="M7 21l13-11 13 11z" fill="var(--${c})"/><rect x="17.5" y="24" width="5" height="8" rx="1" fill="#A8D3E6"/></g></svg>`;
 document.getElementById('stays').innerHTML = STAYS.map(s=>`
@@ -565,7 +684,7 @@ document.getElementById('stays').innerHTML = STAYS.map(s=>`
     <div class="stay-body">
       <div class="row"><span>入住</span><span>${s.in}</span></div>
       <div class="row"><span>出發</span><span>${s.out}</span></div>
-      <div class="tags">${s.park?'<span class="tag tag-rsv">🅿️ 待確認 Alphard 停車位</span>':''}<a class="map" href="${mapURL(s.q)}" target="_blank" rel="noopener">📍 地圖</a></div>
+      <div class="tags">${s.park?'<span class="tag tag-rsv">🅿️ 待確認 Alphard 停車位</span>':''}${mapLinks(s.q)}</div>
     </div>
   </div>`).join('');
 
