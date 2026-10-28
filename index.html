@@ -140,11 +140,13 @@ section{scroll-margin-top:72px;margin-bottom:34px}
 .grp-title:first-of-type{margin-top:0}
 .grp-title i{width:14px;height:14px;border:2.5px solid var(--ink);border-radius:50%;flex:none}
 .notes{display:grid;gap:14px;margin-top:18px}
+.note.sos{background:#FDEBE7}
 .note{padding:12px 14px 10px}
 .note h3{display:flex;align-items:center;gap:8px;font-size:18px;margin-bottom:4px}
 .note h3 span{width:30px;height:30px;border:2.5px solid var(--ink);border-radius:10px;display:grid;place-items:center;font-size:16px;flex:none}
 .note ul{margin:0;padding-left:20px;font-size:15px}
 .note li{margin:5px 0}
+.note a{text-decoration:none;box-shadow:inset 0 -7px 0 var(--mizu);white-space:nowrap}
 .note li b{font-weight:400;box-shadow:inset 0 -7px 0 var(--yellow)}
 @media (min-width:600px){.notes{grid-template-columns:1fr 1fr}}
 
@@ -428,17 +430,17 @@ const DAYS = [
  {date:'3/17',wd:'三',art:'fish',title:'南部海鮮、重機部品朝聖、瀨長島與那霸燒肉宵夜',items:[
   {t:'08:55',e:'10:00',ic:'✈️',n:'抵達那霸機場・BGA 取車',d:'出關後搭接駁車前往 BGA 營業所領取 Toyota Alphard',tr:['plane','shuttle']},
   {t:'10:30',e:'11:45',ic:'🦐',n:'糸滿魚市場',d:'海鮮午餐：現剝生蝦、生魚片、烤扇貝',tr:['drive'],q:'糸満漁民食堂 4 Chome-17-7 Nishizakicho, Itoman, Okinawa 901-0306'},
-  {t:'12:00',e:'13:30',ic:'🏍️',n:'ricoland Okinawa（ライコランド 沖縄店）',d:'沖繩最大機車部品與人身部品專賣店朝聖',tr:['drive'],q:'ライコランド 沖縄店'},
+  {t:'12:00',e:'12:30',ic:'🏍️',n:'ricoland Okinawa（ライコランド 沖縄店）',d:'沖繩最大機車部品與人身部品專賣店朝聖',tr:['drive'],q:'ライコランド 沖縄店'},
   {t:'13:45',e:'15:30',ic:'🥞',n:'瀨長島 Umikaji Terrace',d:'享用幸福鬆餅、看海拍照',tr:['drive'],must:1,rsv:1,q:[['地圖','瀬長島ウミカジテラス'],['幸福鬆餅','幸せのパンケーキ 沖縄瀬長島テラス店']]},
   {t:'15:45',e:'16:30',ic:'🛍️',n:'iias 沖繩豐崎 或 ASHIBINAA Outlet',d:'二選一逛街',tr:['drive'],q:[['iias 豐崎','iias沖縄豊崎'],['ASHIBINAA','沖縄アウトレットモール あしびなー']]},
   {t:'17:00',e:'17:40',ic:'🧳',n:'Urban Terrace Naha Check-in',d:'前往那霸市區辦理入住',tr:['drive'],q:'https://www.google.com/maps/place/%E3%82%A2%E3%83%BC%E3%83%90%E3%83%B3%E3%83%86%E3%83%A9%E3%82%B9%E3%83%8A%E3%83%8F/@26.2205773,127.6730354,17z/data=!3m1!4b1!4m6!3m5!1s0x34e56900215d2e57:0xe9e3471b4f3ebcd!8m2!3d26.2205725!4d127.6756103!16s%2Fg%2F11xvqn_dnj?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'},
   {t:'18:00',e:'20:00',ic:'🥩',n:'晚餐｜燒肉 ぶち（久茂地熱血燒肉）',tr:[],q:'ぶち 久茂地店 3 Chome-12-1 Kumoji, Naha, Okinawa 900-0015'},
   {t:'20:30',e:'',ic:'🍜',n:'宵夜｜一蘭拉麵 那霸國際通店',d:'或國際通夜間散策',tr:['walk'],q:'一蘭 那覇国際通り店'}
  ]},
- {date:'3/18',wd:'四',art:'rock',title:'玉子燒飯糰、波上宮、一蘭拉麵、萬座毛與名護超市半額夜襲',items:[
+ {date:'3/18',wd:'四',art:'rock',title:'玉子燒飯糰、波上宮、通堂拉麵、萬座毛與名護超市半額夜襲',items:[
   {t:'08:30',e:'09:10',ic:'🍙',n:'早餐｜福助玉子燒',d:'現做厚蛋燒沖繩飯糰',tr:[],q:'福助の玉子焼き 市場本通り店 2 Chome-9-11 Matsuo, Naha, Okinawa 900-0014'},
   {t:'09:10',e:'10:20',ic:'⛩️',n:'波上宮＋波之上海灘',d:'參拜、搶購每日限定小書包御守 🎒，海灘拍照後走回飯店開車',tr:['walk'],must:1,q:'波上宮'},
-  {t:'10:30',e:'11:45',ic:'🍜',n:'一蘭拉麵 那霸國際通店',d:'當作早午餐',tr:['drive'],q:'一蘭 那覇国際通り店'},
+  {t:'10:30',e:'11:45',ic:'🍜',n:'通堂拉麵 國際通店',d:'沖繩在地豚骨拉麵，當作早午餐｜招牌「男味」濃厚豚骨、「女味」清爽鹽味',tr:['drive'],q:'らーめん 通堂 国際通り店'},
   {move:1,t:'11:45',n:'沿 58 號國道北上恩納村',d:'約 50 分鐘',tr:['drive']},
   {t:'13:00',e:'14:15',ic:'🍰',n:'下午茶｜SUGAR BROTHERS 恩納村店',d:'濃郁黑糖甜點與冰品',tr:[],q:'SUGAR BROTHERS 恩納村'},
   {t:'14:30',e:'15:30',ic:'🌊',n:'萬座毛',d:'象鼻岩絕景、三層樓全新遊客中心賣店',tr:['drive'],must:1,q:'万座毛'},
@@ -596,61 +598,88 @@ progress();
 const PACK = [
  {g:'衣物',c:'coral',items:[
   ['short','短袖＋薄長袖（洋蔥式穿搭）','白天約 20°C，早晚與冷氣房偏涼'],
-  ['jacket','防風薄外套','萬座毛、殘波岬、知念岬斷崖風大'],
+  ['jacket','防風薄外套或帽 T','萬座毛、殘波岬、知念岬斷崖風大'],
+  ['hat','有帽繩的帽子','防曬又不怕被海風吹走'],
   ['shoes','好走的運動鞋','每天走很多，來客夢還要逛 3 小時'],
   ['sandal','拖鞋或涼鞋','波之上海灘、日落海灘踩沙'],
-  ['swim','泳衣＋一套換洗衣物','Day 4 青洞浮潛，結束後直接去吃 Nobu'],
+  ['swim','泳衣（穿在防寒衣裡）','Day 4 青洞浮潛'],
+  ['change','浮潛後的換洗衣物','結束後直接去吃 Nobu'],
   ['towel','毛巾＋防水袋裝濕衣','浮潛後換裝用'],
-  ['pj','睡衣、4 天份貼身衣物','']
+  ['pj','睡衣、4 天份貼身衣物與襪子','']
  ]},
  {g:'證件與資料',c:'yellow',items:[
-  ['pp','護照（每人）','入出境、購物退稅都要用'],
-  ['dl','台灣駕照正本＋日文譯本','每位會開車的人都要帶，缺一不可'],
-  ['vjw','Visit Japan Web 入境 QR Code','出發前登錄好入境與免稅資料'],
-  ['car','BGA 租車預約確認','取車時出示'],
-  ['hotel','3 間住宿訂房確認','Urban Terrace Naha、還元 Hotel、北谷日漁別莊'],
+  ['pp','護照（每人）','效期建議還有 6 個月以上；手機另存一張照片'],
+  ['dl','台灣駕照正本＋日文譯本','譯本向監理站申請，要和正本一起帶，影本無效；每位會開車的人都要'],
+  ['ticket','電子機票／航班確認信','去程、回程各一份'],
+  ['vjw','Visit Japan Web 入境 QR Code','出發前完成入境審查與海關申報登錄'],
+  ['car','BGA 租車預約確認','記下營業所地址、電話與接駁車位置'],
+  ['hotel','3 間住宿訂房確認＋日文地址','導航、問路或叫計程車時用'],
   ['rsv','預約確認截圖','幸福鬆餅、きんぱぎんぱ、青洞浮潛'],
-  ['ins','旅遊平安險／不便險資料','含海外急難救助電話'],
-  ['cash','信用卡＋日圓現金','魚市場、小店可能只收現金']
+  ['aqua','美麗海水族館門票','先買電子票，08:30 開館直接入場'],
+  ['ins','旅平險＋不便險保單','記下保險公司的海外急難救援電話'],
+  ['card','信用卡 2 張','不同發卡組織各一張，以防刷不過'],
+  ['cash','日圓現金＋零錢包','魚市場、天婦羅店、小店多半只收現金'],
+  ['paper','重要文件紙本備份','護照、駕照、訂房資料各印一份，與手機分開放']
  ]},
  {g:'隨身用品',c:'mizu',items:[
-  ['sun','防曬乳、太陽眼鏡、帽子','3 月紫外線已經不弱'],
+  ['net','網卡／eSIM 或 Wi-Fi 分享器','開車導航必備，至少兩支手機有網路'],
+  ['holder','車用手機支架','導航用'],
+  ['power','行動電源、充電線、車用 USB 充電器','行動電源只能隨身帶，不能托運'],
+  ['sun','防曬乳、太陽眼鏡','3 月紫外線已經不弱'],
   ['phonebag','防水手機袋','浮潛與海邊拍照'],
-  ['net','網卡／eSIM 或 Wi-Fi 分享器','開車導航必備'],
-  ['power','行動電源、充電線、車用充電器','日本插座與台灣相同，不用轉接頭'],
   ['umb','摺疊傘或輕便雨衣',''],
+  ['wipe','濕紙巾、面紙','吃海鮮、天婦羅、蝦蝦飯用得到'],
   ['bag','環保購物袋','超市、商店的塑膠袋要另外收費'],
-  ['med','個人常備藥','暈車藥、腸胃藥、OK 繃'],
-  ['space','行李箱預留空間','唐吉訶德、AEON、伴手禮會買很多']
+  ['med','個人常備藥','暈車藥、腸胃藥、止痛藥、OK 繃'],
+  ['space','行李箱預留空間／摺疊行李袋','唐吉訶德、AEON、伴手禮會買很多']
  ]}
 ];
 const NOTES = [
+ {h:'緊急聯絡',i:'🆘',c:'coral',sos:1,li:[
+  '警察 <a href="tel:110">110</a>｜救護車、消防 <a href="tel:119">119</a>',
+  '駐日代表處那霸分處（上班時間）<a href="tel:+81988627008">098-862-7008</a>',
+  '急難救助專線（僅限緊急重大事件）<a href="tel:+818080560122">080-8056-0122</a>',
+  'JNTO 旅客熱線（24 小時、可說中文）<a href="tel:+815038162787">050-3816-2787</a>',
+  '取車時記下 <b>BGA 營業所電話</b>，車輛事故先報警再通知租車公司',
+  '護照遺失：先到警察局報案拿證明，再聯絡那霸分處補辦'
+ ]},
  {h:'開車',i:'🚗',c:'mizu',li:[
-  '日本<b>靠左行駛、右駕</b>，轉彎、進出停車場時特別放慢',
-  'Day 3、Day 5 會走高速公路，取車時可詢問 BGA 是否加租 <b>ETC 卡</b>',
-  '<b>酒駕零容忍</b>：Orion 啤酒等抵達住宿、確定不再開車才喝',
-  '導航可以輸入電話號碼或 MAPCODE，比輸入地址更準',
-  '還車前<b>加滿油並保留收據</b>，依 BGA 規定辦理',
+  '日本<b>靠左行駛、右駕</b>，方向燈與雨刷位置和台灣相反',
+  '<b>紅燈一律不能轉彎</b>；看到「止まれ」標誌要完全停車',
+  '那霸<b>巴士專用道</b>：國道 58 號、國際通平日 7:30–9:00、17:30–19:00 最左側車道禁止一般車行駛。<b>Day 1（週三）17:00 開往飯店</b>剛好碰到，避開最左線',
+  '高速公路限速 80 km/h；Day 3、Day 5 會走高速，取車時詢問 <b>ETC 卡</b>',
+  '<b>酒駕零容忍</b>：明知駕駛喝酒還同車的乘客也會受罰',
+  '導航輸入電話號碼或 MAPCODE，比輸入地址更準',
+  '國際通沒有附設停車場，停附近的投幣式停車場',
+  '加油站多為人工服務，說「レギュラー満タン」（一般汽油加滿）；還車前加滿油、保留收據',
   'Alphard 車身大：Day 1、Day 3–4 住宿停車位要先確認'
  ]},
  {h:'青洞浮潛',i:'🤿',c:'green',li:[
   '浪大或天候不佳可能<b>臨時取消</b>，前一天跟店家確認',
   '3 月海水仍偏涼，確認店家<b>是否提供防寒衣</b>',
+  '有近視的人，詢問能否租<b>度數蛙鏡</b>',
   '浮潛前不要吃太飽，午餐 Nobu 排在結束後剛剛好',
-  '確認 <b>10:30 場次</b>的集合地點，提早 10–15 分鐘到'
+  '確認 <b>10:30 場次</b>的集合地點，提早 10–15 分鐘到',
+  '貴重物品鎖在車上或店家置物櫃'
  ]},
- {h:'購物退稅',i:'🛍️',c:'coral',li:[
+ {h:'購物與退稅',i:'🛍️',c:'yellow',li:[
   '日本 2026/11 起改成<b>退稅制</b>：結帳先付含稅價，出境時在機場退稅',
   '購物時要出示<b>護照本人</b>，並保留收據與店家給的 QR Code',
   '機場可能抽查退稅商品，<b>放在方便拿出來的地方</b>',
+  'Day 5 15:00 到機場，距起飛約 3 小時：<b>先辦退稅、報到，再逛免稅店</b>',
+  '泡盛、Orion 啤酒等液體伴手禮要放<b>托運行李</b>',
+  '<b>肉製品不能帶回台灣</b>（含肉鬆、豬肉調理包、含肉泡麵），罰款很重',
   '超市半額貼紙約 19:30 後出現，名護 BIG／MaxValu 準時到'
  ]},
- {h:'時間與其他',i:'⏰',c:'yellow',li:[
-  '美麗海水族館 <b>08:30 開館</b>，建議先買好門票',
+ {h:'時間與其他',i:'⏰',c:'mizu',li:[
+  '美麗海水族館 <b>08:30 開館</b>，電子票先買好',
   '波上宮小書包御守每日限量，早點到',
   '美國村週六煙火：出發前<b>再確認當週有無施放</b>',
-  'Day 5 時間緊湊：<b>14:00 還車、15:00 到機場</b>，留足退稅與報到時間',
-  '寺廟、神社參拜時保持安靜，拍照前先看是否禁止'
+  '居酒屋常有「お通し」（小菜費），是正常收費',
+  '日本沒有收小費的習慣',
+  '路上垃圾桶很少，垃圾先帶回住宿',
+  '寺廟、神社參拜時保持安靜，拍照前先看是否禁止',
+  '日本插座與台灣相同，不用轉接頭'
  ]}
 ];
 const PKEY = 'okinawa-2027-pack';
@@ -673,7 +702,7 @@ packEl.addEventListener('change', e=>{
   packProgress();
 });
 packProgress();
-document.getElementById('notes').innerHTML = NOTES.map(n=>`<div class="card note"><h3><span style="background:var(--${n.c})">${n.i}</span>${n.h}注意事項</h3><ul>${n.li.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+document.getElementById('notes').innerHTML = NOTES.map(n=>`<div class="card note${n.sos?' sos':''}"><h3><span style="background:var(--${n.c})">${n.i}</span>${n.h}${n.sos?'':'注意事項'}</h3><ul>${n.li.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
 
 /* ---------- 住宿 ---------- */
 const houseSVG = c => `<svg viewBox="0 0 40 40" aria-hidden="true"><g stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"><circle cx="20" cy="20" r="18" fill="#FFFCF6"/><rect x="11" y="19" width="18" height="13" fill="#FFFCF6"/><path d="M7 21l13-11 13 11z" fill="var(--${c})"/><rect x="17.5" y="24" width="5" height="8" rx="1" fill="#A8D3E6"/></g></svg>`;
