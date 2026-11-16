@@ -423,73 +423,80 @@ const ART = {
   rock:`<svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"><circle cx="32" cy="32" r="28" fill="#FFFCF6"/><path d="M6.7 44H57.3A28 28 0 0 1 6.7 44z" fill="#A8D3E6"/><path d="M14 44l2-14q4-9 15-8q14-1 18 9l1 13h-9q0-9-5.5-9T30 44z" fill="#F6D27A"/><path d="M17 28q3-7 14-6q14-1 17 7q-8-3-16-2q-10-1-15 1z" fill="#B9DAA5"/><g class="a-bob"><path d="M12 52q4-3 8 0t8 0" fill="none" stroke="#FFFCF6"/></g></g></svg>`,
   shark:`<svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"><circle cx="32" cy="32" r="28" fill="#A8D3E6"/><g class="a-wig"><path d="M30 25l5-9 3 10" fill="#FFFCF6"/><path d="M8 33Q22 20 42 28l12-8-3 12 3 12-12-7Q22 46 8 33z" fill="#FFFCF6"/><g fill="#3E3A39" stroke="none"><circle cx="15" cy="31" r="2"/><circle cx="24" cy="29" r="1.6"/><circle cx="31" cy="34" r="1.6"/><circle cx="37" cy="29" r="1.6"/><circle cx="25" cy="37" r="1.6"/></g><path d="M10 35h6" fill="none"/></g></g></svg>`,
   fire:`<svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#3E3A39" stroke-width="3" stroke-linecap="round"><circle cx="32" cy="32" r="28" fill="#FFFCF6"/><g class="a-burst"><path d="M26 18v-7M26 32v7M19 25h-7M33 25h7M21 20l-4-4M31 30l4 4M21 30l-4 4M31 20l4-4" stroke="#F2A497"/></g><g class="a-burst" style="animation-delay:.7s"><path d="M42 36v-5M42 46v5M37 41h-5M47 41h5M38.5 37.5l-3-3M45.5 44.5l3 3M38.5 44.5l-3 3M45.5 37.5l3-3" stroke="#F6D27A"/></g><g class="a-burst" style="animation-delay:1.3s"><path d="M22 44v-3M22 50v3M19 47h-3M25 47h3" stroke="#B9DAA5"/></g></g></svg>`,
+  bag:`<svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle cx="32" cy="32" r="28" fill="#B9DAA5"/><g class="a-wig"><path d="M18 24h28l-3 24H21z" fill="#F2A497"/><path d="M25 24v-4q0-7 7-7t7 7v4" fill="none"/><path d="M27 36q5 4 10 0" fill="none" stroke-width="2.5"/><circle cx="27" cy="31" r="1.6" fill="#3E3A39" stroke="none"/><circle cx="37" cy="31" r="1.6" fill="#3E3A39" stroke="none"/></g></g></svg>`,
   plane:`<svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"><circle cx="32" cy="32" r="28" fill="#F6D27A"/><g class="a-wig"><path d="M27 32l8-13h5l-3 13z" fill="#A8D3E6"/><path d="M12 30l-2-8h5l6 8z" fill="#FFFCF6"/><path d="M10 33q0-4 6-4h26q8 0 10 4q-2 4-10 4H16q-6 0-6-4z" fill="#FFFCF6"/><path d="M28 34l8 12h5l-4-12z" fill="#A8D3E6"/></g></g></svg>`
 };
 
 const DAYS = [
- {date:'3/17',wd:'三',art:'fish',title:'南部海鮮、重機部品朝聖、瀨長島與那霸燒肉宵夜',items:[
+ {date:'3/17',wd:'三',art:'fish',title:'雙海鮮市場、瀨長島幸福鬆餅、Outlet、運動用品、重機部品與一喜喜壽喜燒',items:[
   {t:'08:55',e:'10:00',ic:'✈️',n:'抵達那霸機場・BGA 取車',d:'出關後搭接駁車前往 BGA 營業所領取 Toyota Alphard',tr:['plane','shuttle']},
-  {t:'10:30',e:'11:45',ic:'🦐',n:'糸滿魚市場',d:'海鮮午餐：現剝生蝦、生魚片、烤扇貝',tr:['drive'],q:'糸満漁民食堂 4 Chome-17-7 Nishizakicho, Itoman, Okinawa 901-0306'},
-  {t:'12:00',e:'12:30',ic:'🏍️',n:'ricoland Okinawa（ライコランド 沖縄店）',d:'沖繩最大機車部品與人身部品專賣店朝聖',tr:['drive'],q:'ライコランド 沖縄店'},
-  {t:'13:45',e:'15:30',ic:'🥞',n:'瀨長島 Umikaji Terrace',d:'享用幸福鬆餅、看海拍照',tr:['drive'],must:1,rsv:1,q:[['地圖','瀬長島ウミカジテラス'],['幸福鬆餅','幸せのパンケーキ 沖縄瀬長島テラス店']]},
-  {t:'15:45',e:'16:30',ic:'🛍️',n:'iias 沖繩豐崎 或 ASHIBINAA Outlet',d:'二選一逛街',tr:['drive'],q:[['iias 豐崎','iias沖縄豊崎'],['ASHIBINAA','沖縄アウトレットモール あしびなー']]},
-  {t:'17:00',e:'17:40',ic:'🧳',n:'Urban Terrace Naha Check-in',d:'前往那霸市區辦理入住',tr:['drive'],q:'https://www.google.com/maps/place/%E3%82%A2%E3%83%BC%E3%83%90%E3%83%B3%E3%83%86%E3%83%A9%E3%82%B9%E3%83%8A%E3%83%8F/@26.2205773,127.6730354,17z/data=!3m1!4b1!4m6!3m5!1s0x34e56900215d2e57:0xe9e3471b4f3ebcd!8m2!3d26.2205725!4d127.6756103!16s%2Fg%2F11xvqn_dnj?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'},
-  {t:'18:00',e:'20:00',ic:'🥩',n:'晚餐｜燒肉 ぶち（久茂地熱血燒肉）',tr:[],q:'ぶち 久茂地店 3 Chome-12-1 Kumoji, Naha, Okinawa 900-0015'},
-  {t:'20:30',e:'',ic:'🍜',n:'宵夜｜一蘭拉麵 那霸國際通店',d:'或國際通夜間散策',tr:['walk'],q:'一蘭 那覇国際通り店'}
+  {t:'10:20',e:'11:20',ic:'🐟',n:'第一牧志公設市場（海鮮第一攤）',d:'1 樓挑海鮮、生魚片淺嚐就好，留胃給糸滿｜停附近投幣式停車場',tr:['drive'],q:'那覇市第一牧志公設市場'},
+  {move:1,t:'11:20',n:'往南開到糸滿',d:'約 35–40 分鐘',tr:['drive']},
+  {t:'12:00',e:'12:50',ic:'🦐',n:'糸満お魚センター（海鮮第二攤）',d:'道の駅いとまん內｜生蠔、海膽醬烤蝦／扇貝、生魚片，有內用區；建議帶現金',tr:[],must:1,q:'糸満漁業協同組合 お魚センター 沖縄県糸満市西崎町4丁目19-1'},
+  {t:'13:05',e:'14:30',ic:'🥞',n:'瀨長島 Umikaji Terrace',d:'享用幸福鬆餅、吹海風看飛機起降',tr:['drive'],must:1,rsv:1,q:[['地圖','瀬長島ウミカジテラス'],['幸福鬆餅','幸せのパンケーキ 沖縄瀬長島テラス店']]},
+  {t:'14:45',e:'15:45',ic:'🛍️',n:'iias 沖繩豐崎 或 ASHIBINAA Outlet',d:'二選一逛街',tr:['drive'],q:[['iias 豐崎','iias沖縄豊崎'],['ASHIBINAA','沖縄アウトレットモール あしびなー']]},
+  {t:'15:50',e:'16:40',ic:'👟',n:'SPORTS DEPO 豐崎店（スポーツデポ 豊崎店）',d:'跟 outlet 同在豐崎，開車幾分鐘｜10:00–21:00',tr:['drive'],q:'スポーツデポ 豊崎店 沖縄県豊見城市豊崎1-411'},
+  {t:'16:55',e:'17:25',ic:'🏍️',n:'ricoland Okinawa（ライコランド 沖縄店）',d:'沖繩最大機車部品與人身部品專賣店｜在真玉橋，剛好在回那霸的路上',tr:['drive'],q:'ライコランド 沖縄店 沖縄県豊見城市真玉橋178-1'},
+  {t:'17:25',e:'17:50',ic:'🧳',n:'Urban Terrace Naha Check-in',d:'17:30 後進市區會遇到巴士專用道，避開最左線',tr:['drive'],q:'https://www.google.com/maps/place/%E3%82%A2%E3%83%BC%E3%83%90%E3%83%B3%E3%83%86%E3%83%A9%E3%82%B9%E3%83%8A%E3%83%8F/@26.2205773,127.6730354,17z/data=!3m1!4b1!4m6!3m5!1s0x34e56900215d2e57:0xe9e3471b4f3ebcd!8m2!3d26.2205725!4d127.6756103!16s%2Fg%2F11xvqn_dnj?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'},
+  {t:'18:15',e:'20:15',ic:'🍲',n:'晚餐｜酒喜膳 一喜喜 壽喜燒',d:'松山，從飯店走路約 15 分鐘｜吃完走回飯店，大家都可以喝',tr:['walk'],must:1,rsv:1,q:'酒喜膳 一喜喜 沖縄県那覇市松山1-15-20'},
+  {t:'20:30',e:'',ic:'🌃',n:'國際通夜間散策',d:'逛唐吉訶德或藥妝店',tr:['walk'],q:'国際通り 那覇'}
  ]},
- {date:'3/18',wd:'四',art:'rock',title:'玉子燒飯糰、波上宮、通堂拉麵、萬座毛與名護超市半額夜襲',items:[
-  {t:'08:30',e:'09:10',ic:'🍙',n:'早餐｜福助玉子燒',d:'現做厚蛋燒沖繩飯糰',tr:[],q:'福助の玉子焼き 市場本通り店 2 Chome-9-11 Matsuo, Naha, Okinawa 900-0014'},
+ {date:'3/18',wd:'四',art:'bag',title:'波上宮御守、一蘭、PARCO CITY、Cocoroar、Sports Depo 與炭火燒肉ぶち',items:[
+  {t:'08:30',e:'09:10',ic:'🍙',n:'早餐｜福助玉子燒',d:'現做厚蛋燒沖繩飯糰｜份量不小，可以分著吃',tr:[],q:'福助の玉子焼き 市場本通り店 2 Chome-9-11 Matsuo, Naha, Okinawa 900-0014'},
   {t:'09:10',e:'10:20',ic:'⛩️',n:'波上宮＋波之上海灘',d:'參拜、搶購每日限定小書包御守 🎒，海灘拍照後走回飯店開車',tr:['walk'],must:1,q:'波上宮'},
-  {t:'10:30',e:'11:45',ic:'🍜',n:'琉球新麺 通堂 琉大北口店',d:'沖繩在地豚骨拉麵，當作早午餐｜招牌「男味」濃厚豚骨、「女味」清爽鹽味',tr:['drive'],q:'琉球新麺 通堂 琉大北口店 〒901-2213 沖縄県宜野湾市志真志1丁目7-2 メゾン伊佐'},
-  {move:1,t:'11:45',n:'沿 58 號國道北上恩納村',d:'約 50 分鐘',tr:['drive']},
-  {t:'13:00',e:'14:15',ic:'🍰',n:'下午茶｜SUGAR BROTHERS 恩納村店',d:'濃郁黑糖甜點與冰品',tr:[],q:'SUGAR BROTHERS 恩納村'},
-  {t:'14:30',e:'15:30',ic:'🌊',n:'萬座毛',d:'象鼻岩絕景、三層樓全新遊客中心賣店',tr:['drive'],must:1,q:'万座毛'},
-  {move:1,t:'15:30',n:'北上前往名護市區',d:'約 35 分鐘',tr:['drive']},
-  {t:'16:30',e:'18:30',ic:'🛍️',n:'MEGA 唐吉訶德 名護店',d:'大採購藥妝與伴手禮',tr:[],q:'MEGAドン・キホーテ 名護店'},
-  {t:'18:30',e:'19:30',ic:'🍣',n:'BIG Express Nago 或 MaxValu Nago',d:'19:30 準時搶半額熟食、生魚片與 Orion 啤酒',tr:['drive'],q:'BIG Express 名護'},
-  {t:'20:00',e:'',ic:'🎉',n:'入住 還元 Hotel 本部備瀨',d:'房間開超市半額宵夜派對',tr:['drive'],q:'https://www.google.com/maps/place/%E9%82%84%E5%85%83%E3%83%9B%E3%83%86%E3%83%AB+%E6%9C%AC%E9%83%A8%E5%82%99%E7%80%AC/@26.70241,127.8823026,17z/data=!3m1!4b1!4m9!3m8!1s0x34e4fb2a503aed21:0xe594ce4141210662!5m2!4m1!1i2!8m2!3d26.7024052!4d127.8848775!16s%2Fg%2F11fl_hw_6q?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'}
+  {t:'10:30',e:'11:45',ic:'🍜',n:'早午餐｜一蘭拉麵 那霸國際通店',d:'24 小時營業｜國際通沒有附設停車場，停附近投幣式停車場',tr:['drive'],q:'一蘭 那覇国際通り店'},
+  {t:'12:00',e:'14:15',ic:'🛍️',n:'サンエー浦添西海岸 PARCO CITY',d:'沖繩最大海景購物中心：無印良品、Uniqlo、H&M、免稅藥妝',tr:['drive'],q:'サンエー浦添西海岸 PARCO CITY'},
+  {t:'14:30',e:'15:30',ic:'🧁',n:'下午茶｜COCOROAR CAFE＋港川外人住宅',d:'米粉舒芙蕾鬆餅，建議大家分著吃｜看當天時間決定｜週三公休、L.O. 17:00',tr:['drive'],q:'COCOROAR CAFE 沖縄県浦添市港川2-17-7'},
+  {t:'15:50',e:'16:45',ic:'👟',n:'Sports Depo 天久旗艦店',d:'HOKA、On、Nike 等運動戶外品牌｜天久りうぼう楽市內',tr:['drive'],q:'スポーツデポ フラッグシップストア天久店'},
+  {t:'17:00',e:'19:00',ic:'🥩',n:'晚餐｜炭火焼肉 ぶち 久茂地店',d:'17:00 開門準時進場｜停附近投幣式停車場｜開車的人這餐不喝酒',tr:['drive'],must:1,rsv:1,q:'ぶち 久茂地店 3 Chome-12-1 Kumoji, Naha, Okinawa 900-0015'},
+  {move:1,t:'19:00',n:'走沖繩自動車道北上本部町',d:'約 1.5 小時，不停名護比較準時到',tr:['highway']},
+  {t:'20:45',e:'',ic:'🧳',n:'入住 還元 Hotel 本部備瀨',d:'先跟飯店確認入住時間沒問題',tr:[],q:'https://www.google.com/maps/place/%E9%82%84%E5%85%83%E3%83%9B%E3%83%86%E3%83%AB+%E6%9C%AC%E9%83%A8%E5%82%99%E7%80%AC/@26.70241,127.8823026,17z/data=!3m1!4b1!4m9!3m8!1s0x34e4fb2a503aed21:0xe594ce4141210662!5m2!4m1!1i2!8m2!3d26.7024052!4d127.8848775!16s%2Fg%2F11fl_hw_6q?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'}
  ]},
- {date:'3/19',wd:'五',art:'shark',title:'美麗海頭香、古宇利大橋、許田休息站、來客夢大採購與在地居酒屋',items:[
+ {date:'3/19',wd:'五',art:'shark',title:'美麗海頭香、古宇利蝦蝦飯、The Sinmay、來客夢大採購與美濱居酒屋',items:[
   {move:1,t:'08:15',n:'出發前往水族館',d:'開車約 3 分鐘',tr:['drive']},
-  {t:'08:30',e:'11:30',ic:'🐋',n:'沖繩美麗海水族館',d:'08:30 搶頭香入場｜Ocean Blue 咖啡廳觀鯨鯊＋黑潮之海大水槽＋戶外海豚秀',tr:[],must:1,q:'沖縄美ら海水族館'},
-  {t:'11:30',e:'12:00',ic:'🌉',n:'古宇利大橋',d:'先在橋下沙灘／停車場拍照 📸，再駛過跨海大橋',tr:['drive'],must:1,q:'Nakijin, Okinawa 905-0406'},
+  {t:'08:30',e:'11:30',ic:'🐋',n:'沖繩美麗海水族館',d:'08:30 搶頭香入場｜黑潮之海鯨鯊＋戶外海豚秀',tr:[],must:1,q:'沖縄美ら海水族館'},
+  {t:'11:30',e:'12:00',ic:'🌉',n:'古宇利大橋',d:'先在橋下沙灘拍照 📸，再駛過跨海大橋',tr:['drive'],must:1,q:'Nakijin, Okinawa 905-0406'},
   {t:'12:00',e:'13:30',ic:'🦐',n:'午餐｜Kouri Shrimp 蝦蝦飯',d:'古宇利島人氣蒜味奶油蝦',tr:['drive'],q:'KOURI SHRIMP 古宇利島'},
-  {t:'13:30',e:'14:15',ic:'☕',n:'下午茶｜The Sinmay',d:'招牌黑糖拿鐵',tr:['drive'],q:'The Sinmay 292-2 Tamashiro, Nakijin, Kunigami District, Okinawa 905-0415'},
-  {t:'14:30',e:'15:15',ic:'🍤',n:'許田休息站（Roadside Station Kyoda）',d:'現炸天婦羅、伴手禮、黑糖冰淇淋',tr:['drive'],q:'道の駅許田 やんばる物産センター 17-1 Kyoda, Nago, Okinawa 905-0024'},
-  {move:1,t:'15:15',n:'南下前往 AEON Rycom',d:'約 35 分鐘',tr:['highway']},
-  {t:'15:50',e:'18:50',ic:'🛍️',n:'AEON MALL 沖繩來客夢',d:'大採購 3 小時：mont-bell、MEGA SPORTS、Loft',tr:[],q:'イオンモール沖縄ライカム'},
-  {t:'18:50',e:'19:15',ic:'🧳',n:'北谷日漁別莊 Check-in',tr:['drive'],q:'北谷 日漁別荘'},
+  {t:'13:30',e:'14:20',ic:'☕',n:'下午茶｜The Sinmay',d:'招牌黑糖拿鐵、拍照休息',tr:['drive'],q:'The Sinmay 292-2 Tamashiro, Nakijin, Kunigami District, Okinawa 905-0415'},
+  {move:1,t:'14:20',n:'走高速公路南下 AEON Rycom',d:'約 1 小時 10 分鐘',tr:['highway']},
+  {t:'15:30',e:'18:45',ic:'🛍️',n:'AEON MALL 沖繩來客夢',d:'大採購 3 小時：mont-bell、MEGA SPORTS、Loft、寶可夢中心',tr:[],q:'イオンモール沖縄ライカム'},
+  {t:'18:45',e:'19:10',ic:'🧳',n:'北谷日漁別莊 Check-in',tr:['drive'],q:'北谷 日漁別荘'},
   {t:'19:30',e:'21:30',ic:'🍻',n:'晚餐｜きんぱぎんぱ (Kinpa Ginpa)',d:'美國村高評價在地平價居酒屋',tr:[],rsv:1,q:'きんぱぎんぱ 北谷'},
   {t:'21:30',e:'',ic:'🌙',n:'夜間散步回別莊',tr:['walk']}
  ]},
- {date:'3/20',wd:'六',art:'fire',title:'青洞浮潛、Nobu 海鮮午餐、殘波岬燈塔、美國村漫步與壽司煙火夜',items:[
+ {date:'3/20',wd:'六',art:'fire',title:'青洞浮潛、Blue Entrance Kitchen、萬座毛、美國村夕陽與煙火夜',items:[
   {move:1,t:'09:30',n:'開車前往真榮田岬',d:'約 20 分鐘',tr:['drive']},
   {t:'10:30',e:'13:00',ic:'🤿',n:'真榮田岬 青之洞窟浮潛',d:'約 2.5 小時，含海中攝影｜10:30 場次',tr:[],must:1,rsv:1,q:'真栄田岬'},
-  {t:'13:15',e:'14:30',ic:'🍴',n:'午餐｜Nobu（海鮮島豚 和食のぶ 恩納店）',d:'精緻海鮮與島豚料理',tr:['drive'],q:'海鮮島豚 和食のぶ 恩納'},
-  {t:'14:40',e:'15:30',ic:'🗼',n:'殘波岬燈塔',d:'吃完開車 10 分鐘即達，登燈塔、看斷崖',tr:['drive'],q:'残波岬灯台'},
-  {t:'16:00',e:'18:00',ic:'🌇',n:'美濱美國村＋日落海灘',d:'返回北谷，逛商圈、踩沙看夕陽',tr:['drive'],q:'美浜アメリカンビレッジ'},
+  {t:'13:15',e:'14:30',ic:'🌮',n:'午餐｜Blue Entrance Kitchen 沖縄総本店',d:'恩納村人氣塔可餅（tacos）｜出發前確認週六營業時間',tr:['drive'],q:'Blue Entrance Kitchen 沖縄県国頭郡恩納村前兼久32-1'},
+  {t:'14:45',e:'16:00',ic:'🌊',n:'萬座毛＋SUGAR BROTHERS 恩納村店',d:'象鼻岩絕景＋黑糖甜點與冰品',tr:['drive'],must:1,q:[['萬座毛','万座毛'],['SUGAR BROTHERS','SUGAR BROTHERS 恩納村']]},
+  {move:1,t:'16:00',n:'沿 58 號海景公路南下回北谷',d:'週六約 50–60 分鐘',tr:['drive']},
+  {t:'17:00',e:'18:15',ic:'🌇',n:'美濱美國村＋日落海灘',d:'逛商圈、特色小店，踩沙看夕陽',tr:[],q:'美浜アメリカンビレッジ'},
   {t:'18:15',e:'19:45',ic:'🍣',n:'晚餐｜迴轉壽司 市場 美濱店',d:'Gourmet Conveyor Belt Sushi Ichiba Mihama',tr:['walk'],q:'グルメ回転寿司市場 美浜店'},
   {t:'20:00',e:'20:03',ic:'🎆',n:'美國村週六限定海上煙火',d:'在日落海灘觀賞',tr:['walk'],must:1,q:'サンセットビーチ 北谷'},
   {t:'20:30',e:'',ic:'🌙',n:'返回北谷日漁別莊休息',tr:['walk']}
  ]},
- {date:'3/21',wd:'日',art:'plane',title:'美式早餐、東南岸懸崖海景、天婦羅早午餐、寺廟祈福與還車',items:[
+ {date:'3/21',wd:'日',art:'plane',title:'A&W 美式早餐、知念岬、奧武島天婦羅、達磨寺祈福與還車',items:[
   {t:'08:30',e:'09:30',ic:'🍔',n:'退房・A&W 美濱店早餐',d:'09:30 準時開車出發',tr:['drive'],q:'A&W 美浜店'},
   {move:1,t:'09:30',n:'快速道路直奔南城市',d:'約 50 分鐘',tr:['highway']},
-  {t:'10:30',e:'11:15',ic:'🌊',n:'知念岬公園',d:'360 度環海懸崖步道、太平洋絕景',tr:[],must:1,q:'知念岬公園'},
-  {t:'11:20',e:'12:15',ic:'🍤',n:'奧武島 中本天婦羅店',d:'買現炸天婦羅當海景早午餐',tr:['drive'],q:'中本てんぷら店 奥武島'},
-  {move:1,t:'12:15',n:'北上開往首里',d:'約 30 分鐘',tr:['drive']},
-  {t:'12:45',e:'13:30',ic:'⛩️',n:'西來院（達磨寺）',d:'首里參拜、祈求旅途平安',tr:[],q:'西来院 達磨寺 首里'},
-  {t:'13:30',e:'14:00',ic:'⛽',n:'機場附近加油站加滿油',tr:['drive']},
+  {t:'10:30',e:'11:30',ic:'🌊',n:'知念岬公園',d:'360 度環海懸崖步道、太平洋絕景',tr:[],must:1,q:'知念岬公園'},
+  {t:'11:35',e:'12:30',ic:'🍤',n:'奧武島 中本天婦羅店',d:'買現炸天婦羅配海景當早午餐，順便看島上貓咪',tr:['drive'],q:'中本てんぷら店 奥武島'},
+  {move:1,t:'12:30',n:'北上開往首里',d:'約 30 分鐘，回機場的順路方向',tr:['drive']},
+  {t:'13:00',e:'13:35',ic:'⛩️',n:'西來院（達磨寺）',d:'參拜祈求旅途平安，不倒翁御守很可愛',tr:[],q:'西来院 達磨寺 首里'},
+  {t:'13:35',e:'14:00',ic:'⛽',n:'機場附近加油站加滿油',tr:['drive']},
   {t:'14:00',e:'14:30',ic:'🔑',n:'BGA 營業所還車',tr:['drive']},
-  {t:'15:00',e:'',ic:'🚌',n:'搭接駁車到那霸機場',d:'辦理登機',tr:['shuttle']},
+  {t:'15:00',e:'',ic:'🚌',n:'搭接駁車到那霸機場',d:'先辦退稅、報到，再逛免稅店',tr:['shuttle']},
   {t:'18:10',e:'',ic:'✈️',n:'搭機快樂返台',tr:['plane'],must:1}
  ]}
 ];
 
 const TODOS = [
-  {id:'pancake',t:'幸福鬆餅（瀨長島店）官網預約',s:'Day 1 下午'},
+  {id:'pancake',t:'幸福鬆餅（瀨長島店）官網預約',s:'Day 1 下午 13:05 後'},
+  {id:'kazuki',t:'酒喜膳 一喜喜 壽喜燒訂位',s:'Day 1 晚餐 18:15'},
+  {id:'buchi',t:'炭火焼肉 ぶち 久茂地店 訂位',s:'Day 2 晚餐 17:00｜5 位，網路或電話'},
+  {id:'latein',t:'確認還元 Hotel 可約 20:45 入住',s:'Day 2 晚上'},
   {id:'kinpa',t:'きんぱぎんぱ 居酒屋訂位',s:'Day 3 晚餐｜電話或網路'},
   {id:'cave',t:'青之洞窟浮潛 10:30 場次預約',s:'Day 4 上午'},
+  {id:'bek',t:'確認 Blue Entrance Kitchen 週六營業時間',s:'Day 4 午餐'},
   {id:'park',t:'確認 Alphard 停車位',s:'Urban Terrace Naha、北谷日漁別莊'},
   {id:'license',t:'台灣駕照正本',s:'隨身證件'},
   {id:'passport',t:'護照',s:'隨身證件 × 5 人'},
@@ -497,9 +504,9 @@ const TODOS = [
 ];
 
 const STAYS = [
-  {n:'Urban Terrace Naha',sub:'那霸市區',when:'3/17（三）',nights:'1 晚',in:'約 17:00',out:'3/18 早上（逛完波上宮回來開車）',color:'coral',park:1,q:'https://www.google.com/maps/place/%E3%82%A2%E3%83%BC%E3%83%90%E3%83%B3%E3%83%86%E3%83%A9%E3%82%B9%E3%83%8A%E3%83%8F/@26.2205773,127.6730354,17z/data=!3m1!4b1!4m6!3m5!1s0x34e56900215d2e57:0xe9e3471b4f3ebcd!8m2!3d26.2205725!4d127.6756103!16s%2Fg%2F11xvqn_dnj?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'},
-  {n:'還元 Hotel 本部備瀨',sub:'Kangen Hotel Motobu Bise｜本部町・水族館旁',when:'3/18（四）',nights:'1 晚',in:'約 20:00 後',out:'3/19 08:15 出發去水族館',color:'yellow',q:'https://www.google.com/maps/place/%E9%82%84%E5%85%83%E3%83%9B%E3%83%86%E3%83%AB+%E6%9C%AC%E9%83%A8%E5%82%99%E7%80%AC/@26.70241,127.8823026,17z/data=!3m1!4b1!4m9!3m8!1s0x34e4fb2a503aed21:0xe594ce4141210662!5m2!4m1!1i2!8m2!3d26.7024052!4d127.8848775!16s%2Fg%2F11fl_hw_6q?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'},
-  {n:'北谷日漁別莊',sub:'Chantan Nichigyobetsu｜美國村連住',when:'3/19（五）– 3/20（六）',nights:'2 晚',in:'約 18:50',out:'3/21 08:30',color:'mizu',park:1,q:'北谷 日漁別荘'}
+  {n:'Urban Terrace Naha',sub:'那霸市區',when:'3/17（三）',nights:'1 晚',in:'約 17:50',out:'3/18 早上（逛完波上宮回來開車）',color:'coral',park:1,q:'https://www.google.com/maps/place/%E3%82%A2%E3%83%BC%E3%83%90%E3%83%B3%E3%83%86%E3%83%A9%E3%82%B9%E3%83%8A%E3%83%8F/@26.2205773,127.6730354,17z/data=!3m1!4b1!4m6!3m5!1s0x34e56900215d2e57:0xe9e3471b4f3ebcd!8m2!3d26.2205725!4d127.6756103!16s%2Fg%2F11xvqn_dnj?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'},
+  {n:'還元 Hotel 本部備瀨',sub:'Kangen Hotel Motobu Bise｜本部町・水族館旁',when:'3/18（四）',nights:'1 晚',in:'約 20:45',out:'3/19 08:15 出發去水族館',color:'yellow',q:'https://www.google.com/maps/place/%E9%82%84%E5%85%83%E3%83%9B%E3%83%86%E3%83%AB+%E6%9C%AC%E9%83%A8%E5%82%99%E7%80%AC/@26.70241,127.8823026,17z/data=!3m1!4b1!4m9!3m8!1s0x34e4fb2a503aed21:0xe594ce4141210662!5m2!4m1!1i2!8m2!3d26.7024052!4d127.8848775!16s%2Fg%2F11fl_hw_6q?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D'},
+  {n:'北谷日漁別莊',sub:'Chantan Nichigyobetsu｜美國村連住',when:'3/19（五）– 3/20（六）',nights:'2 晚',in:'約 19:10',out:'3/21 08:30',color:'mizu',park:1,q:'北谷 日漁別荘'}
 ];
 
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -603,7 +610,7 @@ const PACK = [
   ['shoes','好走的運動鞋','每天走很多，來客夢還要逛 3 小時'],
   ['sandal','拖鞋或涼鞋','波之上海灘、日落海灘踩沙'],
   ['swim','泳衣（穿在防寒衣裡）','Day 4 青洞浮潛'],
-  ['change','浮潛後的換洗衣物','結束後直接去吃 Nobu'],
+  ['change','浮潛後的換洗衣物','結束後直接去吃午餐'],
   ['towel','毛巾＋防水袋裝濕衣','浮潛後換裝用'],
   ['pj','睡衣、4 天份貼身衣物與襪子','']
  ]},
@@ -646,19 +653,20 @@ const NOTES = [
  {h:'開車',i:'🚗',c:'mizu',li:[
   '日本<b>靠左行駛、右駕</b>，方向燈與雨刷位置和台灣相反',
   '<b>紅燈一律不能轉彎</b>；看到「止まれ」標誌要完全停車',
-  '那霸<b>巴士專用道</b>：國道 58 號、國際通平日 7:30–9:00、17:30–19:00 最左側車道禁止一般車行駛。<b>Day 1（週三）17:00 開往飯店</b>剛好碰到，避開最左線',
+  '那霸<b>巴士專用道</b>：國道 58 號、國際通平日 7:30–9:00、17:30–19:00 最左側車道禁止一般車行駛。<b>Day 1 約 17:30 回那霸</b>剛好碰到，避開最左線',
   '高速公路限速 80 km/h；Day 3、Day 5 會走高速，取車時詢問 <b>ETC 卡</b>',
   '<b>酒駕零容忍</b>：明知駕駛喝酒還同車的乘客也會受罰',
   '導航輸入電話號碼或 MAPCODE，比輸入地址更準',
   '國際通沒有附設停車場，停附近的投幣式停車場',
   '加油站多為人工服務，說「レギュラー満タン」（一般汽油加滿）；還車前加滿油、保留收據',
+  'Day 2 晚餐後從那霸開到本部約 1.5 小時，<b>開車的人燒肉那餐不喝酒</b>，走高速公路，累了就輪流開',
   'Alphard 車身大：Day 1、Day 3–4 住宿停車位要先確認'
  ]},
  {h:'青洞浮潛',i:'🤿',c:'green',li:[
   '浪大或天候不佳可能<b>臨時取消</b>，前一天跟店家確認',
   '3 月海水仍偏涼，確認店家<b>是否提供防寒衣</b>',
   '有近視的人，詢問能否租<b>度數蛙鏡</b>',
-  '浮潛前不要吃太飽，午餐 Nobu 排在結束後剛剛好',
+  '浮潛前不要吃太飽，午餐 Blue Entrance Kitchen 排在結束後剛剛好',
   '確認 <b>10:30 場次</b>的集合地點，提早 10–15 分鐘到',
   '貴重物品鎖在車上或店家置物櫃'
  ]},
@@ -669,7 +677,6 @@ const NOTES = [
   'Day 5 15:00 到機場，距起飛約 3 小時：<b>先辦退稅、報到，再逛免稅店</b>',
   '泡盛、Orion 啤酒等液體伴手禮要放<b>托運行李</b>',
   '<b>肉製品不能帶回台灣</b>（含肉鬆、豬肉調理包、含肉泡麵），罰款很重',
-  '超市半額貼紙約 19:30 後出現，名護 BIG／MaxValu 準時到'
  ]},
  {h:'時間與其他',i:'⏰',c:'mizu',li:[
   '美麗海水族館 <b>08:30 開館</b>，電子票先買好',
